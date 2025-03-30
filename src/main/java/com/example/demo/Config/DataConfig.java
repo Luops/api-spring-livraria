@@ -1,7 +1,7 @@
 package com.example.demo.Config;
 
 import com.example.demo.User.Model.UserModel;
-import com.example.demo.User.UserRepository;
+import com.example.demo.User.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
