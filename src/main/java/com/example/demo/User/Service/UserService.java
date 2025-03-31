@@ -5,6 +5,8 @@ import com.example.demo.User.Model.UserModel;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.security.core.Authentication;
+
 public interface UserService {
 
     UserModel save(UserModel userModel);
@@ -13,4 +15,5 @@ public interface UserService {
     Optional<UserModel> findByEmail(String email);
     UserModel update(UserModel userModel);
     void deleteById(Long id);
+    String login(Authentication authentication);
 }

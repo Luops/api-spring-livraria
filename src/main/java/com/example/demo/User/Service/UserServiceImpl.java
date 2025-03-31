@@ -3,6 +3,7 @@ package com.example.demo.User.Service;
 import com.example.demo.User.Model.UserModel;
 import com.example.demo.User.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,6 +14,9 @@ public class UserServiceImpl implements UserService{
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private JwtService jwtService;
 
     @Override
     public UserModel save(UserModel userModel) {
@@ -42,5 +46,10 @@ public class UserServiceImpl implements UserService{
     @Override
     public Optional<UserModel> findByEmail(String email) {
         return userRepository.findByEmail(email);
+    }
+
+    @Override
+    public String login(Authentication authentication) {
+        return jwtService.generateToken(authentication);
     }
 }
