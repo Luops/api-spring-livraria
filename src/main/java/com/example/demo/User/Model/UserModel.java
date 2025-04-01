@@ -15,7 +15,6 @@ import lombok.NoArgsConstructor;
 @Table(name = "tb_usuarios")
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class UserModel implements UserDetails{
 
     @Id
@@ -23,9 +22,16 @@ public class UserModel implements UserDetails{
     private Long id;
     private String name;
 
-    private String email;
+    private String email;  
     private String password;
     private String address;
+
+    public UserModel(String name, String email, String password, String address){
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.address = address;
+    }
 
     @Override
     public String toString() {

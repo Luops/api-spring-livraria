@@ -14,7 +14,7 @@ public class DataConfig implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        UserModel user = new UserModel(null, "teste", "teste@mail.com", "12345678", "Road one, Times Square, NYC");
+        UserModel user = new UserModel("teste", "teste@mail.com", "12345678", "Road one, Times Square, NYC");
 
 //        userRepository.save(user);
     }
