@@ -1,14 +1,22 @@
 package com.example.demo.User.Model;
 
+import java.util.Collection;
+import java.util.List;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Table(name = "tb_usuarios")
-@Data
+@Entity
+@Getter
 @NoArgsConstructor
-public class UserModel {
+@EqualsAndHashCode(of = "id")
+public class UserModel implements UserDetails{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,5 +42,15 @@ public class UserModel {
                 ", password='" + password + '\'' +
                 ", address='" + address + '\'' +
                 '}';
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(() -> "read");
+    }
+
+    @Override
+    public String getUsername() {
+        return this.email;
     }
 }
