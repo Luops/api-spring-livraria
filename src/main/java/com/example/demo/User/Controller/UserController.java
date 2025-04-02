@@ -7,7 +7,6 @@ import com.example.demo.User.Model.UserModel;
 import com.example.demo.User.Model.DTO.UserAuthDTO;
 import com.example.demo.User.Model.DTO.UserRegisterDTO;
 import com.example.demo.User.Repository.UserRepository;
-import com.example.demo.User.Service.UserService;
 
 import jakarta.validation.Valid;
 
