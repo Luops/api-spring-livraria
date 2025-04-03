@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.Infra.Security.TokenService;
 import com.example.demo.User.Model.UserModel;
+import com.example.demo.User.Model.DTO.LoginDTO;
 import com.example.demo.User.Model.DTO.UserAuthDTO;
 import com.example.demo.User.Model.DTO.UserRegisterDTO;
 import com.example.demo.User.Repository.UserRepository;
@@ -39,13 +40,13 @@ public class UserController {
     }
 
     @PostMapping("login")
-    public ResponseEntity<String> postMethodName(@RequestBody @Valid UserAuthDTO data) {
+    public ResponseEntity<LoginDTO> postMethodName(@RequestBody @Valid UserAuthDTO data) {
         var emailPassword = new UsernamePasswordAuthenticationToken(data.email(), data.password());
         var auth = this.authenticationManager.authenticate(emailPassword);
         
         var token = this.tokenService.generateToken((UserModel)auth.getPrincipal());
 
-        return ResponseEntity.ok(token);
+        return ResponseEntity.ok(new LoginDTO("Authentication success!", token));
     }
 
     @PostMapping("register")
