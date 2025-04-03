@@ -3,6 +3,7 @@ package com.example.demo.User.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.Infra.Security.TokenService;
 import com.example.demo.User.Model.UserModel;
 import com.example.demo.User.Model.DTO.UserAuthDTO;
 import com.example.demo.User.Model.DTO.UserRegisterDTO;
@@ -29,21 +30,26 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private TokenService tokenService;
+
     @GetMapping
     public String getText() {
         return new String("Ok!!!");
     }
 
     @PostMapping("login")
-    public ResponseEntity postMethodName(@RequestBody @Valid UserAuthDTO data) {
+    public ResponseEntity<String> postMethodName(@RequestBody @Valid UserAuthDTO data) {
         var emailPassword = new UsernamePasswordAuthenticationToken(data.email(), data.password());
         var auth = this.authenticationManager.authenticate(emailPassword);
+        
+        var token = this.tokenService.generateToken((UserModel)auth.getPrincipal());
 
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(token);
     }
 
     @PostMapping("register")
-    public ResponseEntity postMethodName(@RequestBody @Valid UserRegisterDTO data) {
+    public ResponseEntity<String> postMethodName(@RequestBody @Valid UserRegisterDTO data) {
         if (this.userRepository.findByEmail(data.email()) != null)
             return ResponseEntity.badRequest().build();
 
@@ -52,7 +58,7 @@ public class UserController {
 
         this.userRepository.save(newUser);
 
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok("Ok");
     }
 
 }
