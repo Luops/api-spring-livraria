@@ -1,14 +1,14 @@
-package com.example.demo.User.Controller;
+package com.example.demo.Domain.User.Controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.Infra.Security.TokenService;
-import com.example.demo.User.Model.UserModel;
-import com.example.demo.User.Model.DTO.LoginDTO;
-import com.example.demo.User.Model.DTO.UserAuthDTO;
-import com.example.demo.User.Model.DTO.UserRegisterDTO;
-import com.example.demo.User.Repository.UserRepository;
+import com.example.demo.Domain.User.Model.UserModel;
+import com.example.demo.Domain.User.Model.DTO.LoginDTO;
+import com.example.demo.Domain.User.Model.DTO.UserAuthDTO;
+import com.example.demo.Domain.User.Model.DTO.UserRegisterDTO;
+import com.example.demo.Domain.User.Repository.UserRepository;
 
 import jakarta.validation.Valid;
 

@@ -1,4 +1,4 @@
-package com.example.demo.User.Model.DTO;
+package com.example.demo.Domain.User.Model.DTO;
 
 public record UserAuthDTO(String email, String password){
     

@@ -1,4 +1,4 @@
-package com.example.demo.User.Model;
+package com.example.demo.Domain.User.Model;
 
 import java.util.Collection;
 import java.util.List;

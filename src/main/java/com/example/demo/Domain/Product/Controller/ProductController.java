@@ -1,7 +1,7 @@
-package com.example.demo.Product.Controller;
+package com.example.demo.Domain.Product.Controller;
 
-import com.example.demo.Product.Model.ProductModel;
-import com.example.demo.Product.Service.ProductService;
+import com.example.demo.Domain.Product.Model.ProductModel;
+import com.example.demo.Domain.Product.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

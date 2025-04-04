@@ -1,6 +1,6 @@
-package com.example.demo.Product.Service;
+package com.example.demo.Domain.Product.Service;
 
-import com.example.demo.Product.Model.ProductModel;
+import com.example.demo.Domain.Product.Model.ProductModel;
 
 import java.util.List;
 import java.util.Optional;
