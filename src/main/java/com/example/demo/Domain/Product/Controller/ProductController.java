@@ -26,7 +26,7 @@ public class ProductController {
 
     @PostMapping("adicionar") // Criar rota para adicionar Produto
     public ProductModel productAdd(){
-        ProductModel productModel = new ProductModel(null,"Titulo","Autor",18.00,"Descricao",true);
+        ProductModel productModel = new ProductModel("Titulo","Autor",18.00,"Descricao",true);
 
         return productModel;
     }
