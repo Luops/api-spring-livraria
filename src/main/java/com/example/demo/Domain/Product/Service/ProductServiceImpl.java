@@ -13,26 +13,41 @@ public class ProductServiceImpl implements ProductService{
     @Autowired
     private ProcuctRepository procuctRepository;
 
+    /*
+    * Criar produto
+    * */
     @Override
     public ProductModel save(ProductModel productModel){
         return procuctRepository.save(productModel);
     }
 
+    /*
+     * Listar todos os produtos
+     * */
     @Override
     public List<ProductModel> findAll(){
         return procuctRepository.findAll();
     }
 
+    /*
+     * Encontrar produto pelo id
+     * */
     @Override
     public Optional<ProductModel> findById(Long id){
         return procuctRepository.findById(id);
     }
 
+    /*
+     * Atualizar produto
+     * */
     @Override
     public ProductModel update(ProductModel productModel){
         return procuctRepository.save(productModel);
     }
 
+    /*
+     * Deletar produto pelo Id
+     * */
     @Override
     public void deleteById(Long id){
         procuctRepository.deleteById(id);
