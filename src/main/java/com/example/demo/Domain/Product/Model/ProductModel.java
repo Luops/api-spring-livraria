@@ -17,11 +17,13 @@ import lombok.experimental.SuperBuilder;
 // Criar construtor sem argumentos
 @NoArgsConstructor
 // Criar construtor com argumentos
+@AllArgsConstructor
 @SuperBuilder
 public class ProductModel extends BaseEntity {
     @Id
     // Condicao para gerar o ID (Nesse caso gerar com numeros)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String title;
     private String author;
     private Double price;

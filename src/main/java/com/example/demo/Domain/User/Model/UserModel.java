@@ -3,6 +3,7 @@ package com.example.demo.Domain.User.Model;
 import java.util.Collection;
 import java.util.List;
 
+import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
